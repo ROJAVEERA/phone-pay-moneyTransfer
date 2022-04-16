@@ -1,0 +1,23 @@
+#####deployment file#############
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paytm-deployment
+  labels:
+    app: paytm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paytm
+  template:
+    metadata:
+      labels:
+        app: paytm
+    spec:
+      containers:
+      - name: paytm
+        image: rojakumaridocker/paytm:version
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
