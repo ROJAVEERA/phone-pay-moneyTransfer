@@ -15,7 +15,7 @@ spec:
         app: paytm
     spec:
       containers:
-      - name: paytm
+      - name: paytm-cont
         image: rojakumaridocker/phone-pay-moneytransfer:version
         imagePullPolicy: Always
         ports:
