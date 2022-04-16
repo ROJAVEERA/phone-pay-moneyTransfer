@@ -13,14 +13,14 @@ agent any
     }
      stage ('Build Docker image'){
       steps{
-       sh "docker build -t rojakumaridocker/paytm:${params.getDockerTag} ."
+       sh "docker build -t rojakumaridocker/phone-pay-moneytransfer:${params.getDockerTag} ."
       }
     }
     stage ('Push to Docker hub'){
       steps{
         withCredentials([string(credentialsId: 'rojadockerpwd', variable: 'Dockerpwd')]) {
           sh "docker login -u rojakumaridocker -p ${Dockerpwd}"
-          sh "docker push rojakumaridocker/paytm:${params.getDockerTag}"
+          sh "docker push rojakumaridocker/phone-pay-moneytransfer:${params.getDockerTag}"
         } 
       }
     }
